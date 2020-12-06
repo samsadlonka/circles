@@ -5,28 +5,26 @@ from PyQt5.Qt import QMainWindow, QApplication
 
 from PyQt5.QtGui import QPainter, QColor
 
-from PyQt5 import uic
+from Ui import Ui_MainWindow
 
 
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
 
-        uic.loadUi('Ui.ui')
-
+        self.setupUi(self)
         self.flag = False
         self.d = randrange(1, 100)
         self.x = randrange(0, 300)
         self.y = randrange(0, 300)
-        # self.color = (randrange(0, 256), randrange(0, 256), randrange(0, 256))
-        self.color = (255, 255, 0)
+        self.color = (randrange(0, 256), randrange(0, 256), randrange(0, 256))
         self.pushButton.clicked.connect(self.draw_circle)
 
     def draw_circle(self):
         self.d = randrange(1, 100)
         self.x = randrange(0, 300)
         self.y = randrange(0, 300)
-        self.color = (255, 255, 0)
+        self.color = (randrange(0, 256), randrange(0, 256), randrange(0, 256))
 
         self.flag = True
         self.repaint()
