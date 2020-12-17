@@ -12,7 +12,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        uic.loadUi('Ui.ui')
+        uic.loadUi('Ui.ui', self)
 
         self.flag = False
         self.d = randrange(1, 100)
